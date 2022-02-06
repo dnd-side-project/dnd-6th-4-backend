@@ -1,93 +1,66 @@
 # dnd-6th-4-backend
 
-## 1. 할일 정리
-
-- 세부 기술 스택 선정
-- 아키텍처 구성
-- 프로젝트 세팅
-
-[백엔드]
-
-## 2. 세부 기술 스택 선정 : 개발환경 부터 선정한 프레임워크 등등.. 세부사항
+## 세부 기술 스택 선정
 
 [백엔드]
 
 - IDE : VS Code
 - 런타임 환경 : Node JS
-- 버전관리 : nvm
 - 패키지 관리 : npm  // 이상 구체적인 버전 확인 필요
 - 형상관리 : Git / Github
 - 개발환경 세팅 : Docker (DockerFile 활용)
 
-[프론트]
 
-- IDE : Android Studio Arctic Fox | 2020.3.1 Patch4
-- Gradle 7.2.0
-- Kotlin 1.6.0
-- Room Database
-- Koin
-- Coroutine
-- REST API - Retrofit2
-- LiveData + DataBinding
-
-...
-
-## 3. 아키텍처 구성
+## 아키텍처 구성
 
 [백엔드]
+디자인 패턴 : MVC
+Framework : Nest JS
 
-WS (WAS) : Nest JS
+** src **
+└ User
+  └ Repository
+  └ Entity
+  └ Service
+  └ Controller
+  └ ** module.ts **
+└ Subject
+└ DailyClass
 
-DataBase : MongoDB || Oracle ?? ...
+** test **
+└ User
+└ Subject
+└ DailyClass
 
-[프론트]
+** config **
+└ schema.ts ... etc
+** main.ts **
+** remainder **
 
-디자인 패턴 : MVVM
+## File Naming convention
 
-**패키지 구조** : Data, Presentation, DI, Domain, Util
+> service-name.role.ts
+> ex : user-login.entity.ts + user-login.repository.ts ...
 
-**Data**
+## Git commit convention
 
-└ repository
 
-└ local, remote
+### Head
 
-└ network
+1. 기능을 태그로 작성한다.
+2. 어떤 부분을 수정했는지 표시하기 위해서 태그 뒤에 괄호로 커밋한 기능명을 작성한다.
+3. 설명은 대문자, 동사원형으로 작성 시작한다. Tag : Feat, Fix, Design, Rename, Remove, Comment, !HOTFIX
 
-└ retrofit
+ex) Feat(Review): Add no review screen
 
-└ model
+### **Body**
 
-**Presentation**
+1. '어떻게' 변경했는지 보다 '무엇을', '왜' 변경했는지 작성 (방법보다 사유 기술)
 
-└ (class name)
+[예제](https://doublesprogramming.tistory.com/256)
 
-└ view
+![image](https://user-images.githubusercontent.com/58278026/152681510-6513ab1e-c141-4033-be4f-fc40a5c69ce3.png)
 
-└ viewmodel
+### code formating 
 
-**Util**
-
-**DI**
-
-└ koin modules
-
-## 4. 프로젝트 세팅
-
-[백엔드]
-
-- TODO - 1 : 런타임 환경 및 노드 매니저 버전 결정하기
-- TODO - 2 : 데이터 베이스 결정하기 (MongoDB추천!)
-- TODO - 3 : 프로젝트 생성하기
-- TODO - 4 : 깃허브 리포지 토리 생성 및 깃허브 전략 상의하기 (간단하게 하시죠 대현님!)
-- TODO - 5 : 각자 예제 실습 해보기 (Nest JS와 친해지기 위해서 같이 전략을 짜보시죠!!)
-- TODO - 6 : ORM 등등 미들웨어(외부 패키지 등) 은 어떠한 것을 사용할지 결정하기
-
-[프론트]
-
-- TODO - 1 : 깃허브 레포지토리 생성 및 Git Convention 상의 후 수립하기
-- TODO - 2 : 개발패턴 및 프레임워크 버전 통합하기
-- TODO - 3 : 프로젝트 레포지토리 WIKI에 각각 Git Convention, 아키텍쳐 구조 작성하기
-- TODO - 4 : MVVM 관련 예제 연습하기
-- TODO - 5 : 깃허브 위키에 개발 과정 회고록 / 회의록 작성하기
-- TODO - 6 : 안드로이드 프로젝트 생성 및 Upstream Repository에 Commit/Push 하기
+* eslintrc.js 에 설정해서 배포 -> 한명이 결정
