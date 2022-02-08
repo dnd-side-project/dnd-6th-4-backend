@@ -5,8 +5,8 @@ import { CatsController } from './cats/cats.controller';
 import { SampleModule } from './sample/sample.module';
 
 @Module({
-  imports: [SampleModule],
-  controllers: [AppController, CatsController],
-  providers: [AppService],
+	imports: [SampleModule],
+	controllers: [AppController, CatsController],
+	providers: [AppService]
 })
 export class AppModule {}
