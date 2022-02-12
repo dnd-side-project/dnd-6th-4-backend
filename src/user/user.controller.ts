@@ -8,19 +8,27 @@ import {
 	Delete,
     Query
 } from '@nestjs/common';
+import { UserService } from './user.service';
+import { UserRequestDto } from './dto/user-request.dto';
 
 @Controller('user')
 export class UserController {
-    constructor() {}
-	// constructor(private readonly sampleService: SampleService) {}
+    // constructor() {}
+	constructor(private readonly userService: UserService) {}
 
 	@Get()
-	findUserById(@Query('id') id: string) {
-		return `TODO - check ${id} is in database`
+	findUserById(@Query('email') email: string) {
+		return this.userService.findByEmail(email) ?? `${email} is not exist`;
+	}
+	
+	@Get('all')
+	findAllUser() {
+		return this.userService.findAll();
 	}
 
-	// @Post()
-	// addUser() {
-	// 	return;
-	// }
+	@Post()
+	async addUser(@Body() userDto: UserRequestDto) {
+		this.userService.addUser(userDto);
+		return userDto.getEmail();
+	}
 }
