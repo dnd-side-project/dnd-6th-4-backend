@@ -1,10 +1,29 @@
-FROM node:14
+FROM node:15
 WORKDIR /app
-COPY package.json ./
+COPY package*.json ./
 RUN npm install
 COPY . .
-CMD [ "npm", "start" ]
 EXPOSE 3000
+CMD ["npm", "start"]
+
+# 이하 도커나이즈 테스트
+
+# FROM node:14
+# ENV DOCKERIZE_VERSION v0.2.0
+# RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+#     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+# RUN npm install -g nodemon
+# RUN mkdir -p /usr/src/app
+# WORKDIR /usr/src/app
+# COPY package.json ./
+# RUN npm install
+# COPY . .
+
+# RUN chmod +x docker-entrypoint.sh
+# ENTRYPOINT ./docker-entrypoint.sh
+
+# EXPOSE 3000
 
 # 이하 배포욜 빌드파일
 
