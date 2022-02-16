@@ -35,3 +35,5 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 /mysql/data
+/docs/TODO.md
+ormconfig.json
