@@ -13,22 +13,9 @@ import { UserRequestDto } from './dto/user-request.dto';
 
 @Controller('user')
 export class UserController {
-    // constructor() {}
-	constructor(private readonly userService: UserService) {}
-
-	@Get()
-	findUserById(@Query('email') email: string) {
-		return this.userService.findByEmail(email) ?? `${email} is not exist`;
-	}
-	
+	constructor(private userService: UserService) {}
 	@Get('all')
-	findAllUser() {
+	findAll() {
 		return this.userService.findAll();
-	}
-
-	@Post()
-	async addUser(@Body() userDto: UserRequestDto) {
-		this.userService.addUser(userDto);
-		return userDto.getEmail();
 	}
 }
