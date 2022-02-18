@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { User } from './entities/user.model';
 import { UserCreateDto } from './dto/user-create.dto';
 import { ForbiddenException, HttpStatus } from '@nestjs/common';
-import { classToPlain, plainToClass } from 'class-transformer';
+
 @Injectable()
 export class UserService {
 	constructor(
@@ -21,7 +21,7 @@ export class UserService {
 	}
 
 	async create(userCreateDto: UserCreateDto): Promise<any> {
-		const isExist = await this.usersRepository.findOne(userCreateDto.email);
+		const isExist = await this.usersRepository.findOne({ email: userCreateDto.email });
 
 		if (isExist) {
 			throw new ForbiddenException({
@@ -30,10 +30,9 @@ export class UserService {
 				error: 'Forbidden'
 			});
 		}
-		
+
 		const { ...res } = await this.usersRepository.save(userCreateDto);
 		return res;
-										
 	}
 
 	async remove(id: string): Promise<void> {
