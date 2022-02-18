@@ -37,3 +37,4 @@ lerna-debug.log*
 /mysql/data
 /docs/TODO.md
 ormconfig.json
+/src/auth/constants.ts
