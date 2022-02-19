@@ -1,6 +1,7 @@
-import { IsString, IsInt, Min, Max, IsNumber, IsDate, IsMilitaryTime } from 'class-validator';
+import { IsString, IsInt, Min, Max, IsNumber, IsMilitaryTime, isDateString, IsDate, IsDateString } from 'class-validator';
 
-export class SubjectCreateDto {
+export class SubjectDto {
+    // TODO - 한글 post 실패
     @IsString()
     subject_nm: string;
 
@@ -18,7 +19,7 @@ export class SubjectCreateDto {
     class_time: Date;
 
     // 2020-01-01
-    @IsDate()
+    @IsDateString()
     class_day: Date;
 
     @IsInt()

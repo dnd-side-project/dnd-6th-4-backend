@@ -10,24 +10,30 @@ import {
 	// Delete,
 	// Query
 } from '@nestjs/common';
+import { SubjectService } from './subject.service';
+import { SubjectDto } from './dto/subject.dto';
+import { Subject } from './entities/subject.model';
 
 @Controller('subject')
 export class SubjectController {
-    constructor() {}
+    constructor(private subjectService: SubjectService) {}
 
     @Get('all')
     findAll() {
-        return "this is subject find all uri";
+        return this.subjectService.findAll();
     }
 
     @Get()
     findByClassId(@Query() req: any) {
-        return `this is ${req.id} - class uri`;
+        // return `this is ${req.id} - class uri`;
+        console.log(req.id);
+        return this.subjectService.findOneByTeacherId(req.id);
     }
 
     @Post()
-    async createSubject() {
-        return 'this is subject create uri';
+    async createSubject(@Body() createSubjectDto: SubjectDto) {
+        // return 'this is subject create uri';
+        return await this.subjectService.create(createSubjectDto);
     }
 
     @Put()
