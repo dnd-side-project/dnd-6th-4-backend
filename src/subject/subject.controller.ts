@@ -24,10 +24,9 @@ export class SubjectController {
     }
 
     @Get()
-    findByClassId(@Query() req: any) {
+    findByClassId(@Query() queryString: any) {
         // return `this is ${req.id} - class uri`;
-        console.log(req.id);
-        return this.subjectService.findOneByTeacherId(req.id);
+        return this.subjectService.findOneByTeacherId(queryString.id);
     }
 
     @Post()
