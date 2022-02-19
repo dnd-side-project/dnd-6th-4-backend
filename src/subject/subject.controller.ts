@@ -21,9 +21,8 @@ export class SubjectController {
     }
 
     @Get()
-    findByClassId(@Query()id: number) {
-        // TOOD - id 오류가 생성되는 것으로 보임, [Object Object]
-        return `this is ${id} - class uri`;
+    findByClassId(@Query() req: any) {
+        return `this is ${req.id} - class uri`;
     }
 
     @Post()
