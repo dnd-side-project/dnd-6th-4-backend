@@ -5,7 +5,8 @@ import {
 	Body,
     Put,
 	// Patch,
-	Param
+	Param,
+    Query
 	// Delete,
 	// Query
 } from '@nestjs/common';
@@ -19,8 +20,8 @@ export class SubjectController {
         return "this is subject find all uri";
     }
 
-    @Get(':id')
-    findByClassId(@Param() id: number) {
+    @Get()
+    findByClassId(@Query()id: number) {
         // TOOD - id 오류가 생성되는 것으로 보임, [Object Object]
         return `this is ${id} - class uri`;
     }

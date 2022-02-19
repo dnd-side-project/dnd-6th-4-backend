@@ -14,10 +14,10 @@ export class Subject {
     @Column()
     monthly_cnt: number;
 
-    @Column({ default: "timestamp"})
+    @Column('time')
     class_time: Date;
 
-    @Column({ default: "date" })
+    @Column('date')
     class_day: Date;
 
     @Column()
