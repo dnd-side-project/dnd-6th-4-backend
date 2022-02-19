@@ -40,6 +40,10 @@ CREATE TABLE Daily_Class (
 INSERT INTO User(email, user_nm, password, role, phone_num) VALUES("asdf1234@naver.com", "seunghwan_lee", "asdfasdfasdf", 1, "010-0000-0000");
 INSERT INTO User(email, user_nm, password, role, phone_num) VALUES("qwer5678@naver.com", "hwanseung_lee", "12341234", 1, "010-0000-0001");
 
+
+INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id) VALUES("수학", 400000, 8, "12:12:33", "2022-01-01", 1);
+INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id) VALUES("영어", 500000, 12,  "12:22:33", "2022-01-02", 1);
+
 ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'password';
 
 flush privileges;
