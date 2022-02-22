@@ -24,4 +24,7 @@ export class SubjectDto {
 
     @IsInt()
     teacher_id: number;
+
+    @IsInt()
+    color: number;
 }

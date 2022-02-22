@@ -25,4 +25,7 @@ export class Subject {
 
     @Column({ nullable: true, default: null })
     student_id: number;
+
+    @Column()
+    color: number;
 }
