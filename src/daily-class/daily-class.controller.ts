@@ -10,25 +10,27 @@ import {
 	// Delete,
 	// Query
 } from '@nestjs/common';
-// import { DailyClassDto } from './dto/daily-class.dto';
+import { DailyClassDto } from './dto/daily-class.dto';
+import { DailyClassService } from './daily-class.service';
+import { DailyClass } from './entities/daily-class.model';
 
 @Controller('dailyclass')
 export class DailyClassController {
-    constructor() {}
+    constructor(private dailyClassService: DailyClassService ) {}
 
     @Get('all')
     findAll() {
-        return 'this is daily class find all';
+        return this.dailyClassService.findAll();
     }
 
     @Get()
-    findByDailyClassId(@Query() queryString: any) {
-        // return `this is ${req.id} - class uri`;
+    findByDailyClassId(@Query('id') subject_id: number) {
+        return this.dailyClassService.findAllbySubjectId(subject_id);
     }
 
     @Post()
-    async createDailyClass() {
-        return 'this is daily class create uri';
+    async createDailyClass(@Body() createDailyClass: DailyClassDto) {
+        return await this.dailyClassService.create(createDailyClass);
     }
 
     @Put()

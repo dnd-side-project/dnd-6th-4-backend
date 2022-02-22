@@ -11,11 +11,8 @@ export class DailyClassDto {
     @IsMilitaryTime()
     start_time: Date;
 
-    @IsMilitaryTime()
-    end_time: Date;
-
     @IsString()
-    plate: string;
+    place: string;
 
     @IsString()
     chapter: string;
