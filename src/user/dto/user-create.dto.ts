@@ -1,4 +1,4 @@
-import { IsString, IsInt, Min, Max, IsEmail } from 'class-validator';
+import { IsString, IsInt, Min, Max, IsEmail, IsOptional } from 'class-validator';
 
 export class UserCreateDto {
 	@IsString()
@@ -18,4 +18,7 @@ export class UserCreateDto {
 
 	@IsString()
 	phone_num: string;
+
+	@IsOptional()
+	parent_phone_num?: string
 }

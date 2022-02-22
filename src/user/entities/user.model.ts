@@ -19,4 +19,7 @@ export class User {
 
 	@Column()
 	phone_num: string;
+
+	@Column({ nullable: true, default: null })
+	parent_phone_num: string;
 }
