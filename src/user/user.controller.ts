@@ -4,13 +4,15 @@ import {
 	Post,
 	Body,
 	// Patch,
-	Param
+	Param,
+	Put
 	// Delete,
 	// Query
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserCreateDto } from './dto/user-create.dto';
 import { User } from './entities/user.model';
+import { UserChangeDto } from './dto/user-change.dto';
 
 @Controller('user')
 export class UserController {
@@ -30,5 +32,23 @@ export class UserController {
 	@Get(':email')
 	findOne(@Param('email') email: string): Promise<User> {
 		return this.userService.findOne(email);
+	}
+	
+	@Put('name')
+	changeName(@Body() changeUserDto: UserChangeDto) {
+		console.log(changeUserDto);
+		return 'change name';
+	}
+
+	@Put('password')
+	changePassword(@Body() changeUserDto: UserChangeDto) {
+		console.log(changeUserDto);
+		return 'change password';
+	}
+
+	@Put('phone-num')
+	changePhoneNumber(@Body() changeUserDto: UserChangeDto) {
+		console.log(changeUserDto);
+		return 'change phone number';
 	}
 }
