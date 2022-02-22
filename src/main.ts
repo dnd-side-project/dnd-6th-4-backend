@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { setupSwagger } from 'src/app.swagger';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
@@ -21,14 +21,7 @@ async function bootstrap() {
 	);
 
 	// swagger
-	const config = new DocumentBuilder()
-		.setTitle('Ping pong')
-		.setDescription('The ping pong API description')
-		.setVersion('0.0')
-		.addTag('1st')
-		.build();
-	const document = SwaggerModule.createDocument(app, config);
-	SwaggerModule.setup('api', app, document);
+	setupSwagger(app);
 
 	await app.listen(3000);
 }

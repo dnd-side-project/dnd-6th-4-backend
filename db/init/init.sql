@@ -4,7 +4,8 @@ CREATE TABLE User (
     user_nm VARCHAR(255),
     password VARCHAR(255),
     role TINYINT,
-    phone_num VARCHAR(255), 
+    phone_num VARCHAR(255),
+    parent_phone_num VARCHAR(255),
     PRIMARY KEY(id)
 );
 
@@ -17,6 +18,7 @@ CREATE TABLE Subject (
     class_day DATE,
     teacher_id INT,
     student_id INT,
+    color INT,
     PRIMARY KEY(id)
 );
 
@@ -25,7 +27,6 @@ CREATE TABLE Daily_Class (
     subject_id INT NOT NULL,
     class_order TINYINT,
     start_time TIME,
-    end_time TIME,
     place VARCHAR(255),
     chapter VARCHAR(255),
     memo VARCHAR(255),
@@ -33,16 +34,21 @@ CREATE TABLE Daily_Class (
     daily_feedback VARCHAR(255),
     daily_comment VARCHAR(255),
     homework VARCHAR(255),
+    change_feedback BOOLEAN, 
+    change_start_time TIME,
     PRIMARY KEY(id)
 );
 
 
-INSERT INTO User(email, user_nm, password, role, phone_num) VALUES("asdf1234@naver.com", "seunghwan_lee", "asdfasdfasdf", 1, "010-0000-0000");
-INSERT INTO User(email, user_nm, password, role, phone_num) VALUES("qwer5678@naver.com", "hwanseung_lee", "12341234", 1, "010-0000-0001");
+INSERT INTO User(email, user_nm, password, role, phone_num, parent_phone_num) VALUES("asdf1234@naver.com", "seunghwan_lee", "asdfasdfasdf", 1, "010-0000-0000", "010-0000-0000");
+INSERT INTO User(email, user_nm, password, role, phone_num, parent_phone_num) VALUES("qwer5678@naver.com", "hwanseung_lee", "12341234", 1, "010-0000-0001", "010-0000-0000");
 
 
-INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id) VALUES("수학", 400000, 8, "12:12:33", "2022-01-01", 1);
-INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id) VALUES("영어", 500000, 12,  "12:22:33", "2022-01-02", 1);
+INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id, color) VALUES("수학", 400000, 8, "12:12:33", "2022-01-01", 1, 100);
+INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id, color) VALUES("영어", 500000, 12,  "12:22:33", "2022-01-02", 1, 100);
+
+INSERT INTO Daily_Class(subject_id, class_order, start_time, place, chapter, memo, noty, daily_feedback, daily_comment, homework) VALUES(1, 5, "12:12:12", "home", "aaaa", "bbbb", "noty", "feed_back", "comment", "homeworkd");
+INSERT INTO Daily_Class(subject_id, class_order, start_time, place, chapter, memo, noty, daily_feedback, daily_comment, homework) VALUES(2, 6, "12:12:12", "home", "chapter", "memo", "noty", "feed_back", "comment", "homeworkd");
 
 ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'password';
 
