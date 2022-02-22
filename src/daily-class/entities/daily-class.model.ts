@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('Daily')
+@Entity('Daily_Class')
 export class DailyClass {
     @PrimaryGeneratedColumn()
     id: number;
@@ -14,8 +14,8 @@ export class DailyClass {
     @Column('time')
     start_time: Date;
 
-    @Column('time')
-    end_time: Date;
+    // @Column('time')
+    // end_time: Date;
 
     @Column()
     place: string;

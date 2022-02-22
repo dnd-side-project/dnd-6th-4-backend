@@ -25,7 +25,6 @@ CREATE TABLE Daily_Class (
     subject_id INT NOT NULL,
     class_order TINYINT,
     start_time TIME,
-    end_time TIME,
     place VARCHAR(255),
     chapter VARCHAR(255),
     memo VARCHAR(255),
@@ -43,6 +42,9 @@ INSERT INTO User(email, user_nm, password, role, phone_num) VALUES("qwer5678@nav
 
 INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id) VALUES("수학", 400000, 8, "12:12:33", "2022-01-01", 1);
 INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id) VALUES("영어", 500000, 12,  "12:22:33", "2022-01-02", 1);
+
+INSERT INTO Daily_Class(subject_id, class_order, start_time, place, chapter, memo, noty, daily_feedback, daily_comment, homework) VALUES(1, 5, "12:12:12", "home", "aaaa", "bbbb", "noty", "feed_back", "comment", "homeworkd");
+INSERT INTO Daily_Class(subject_id, class_order, start_time, place, chapter, memo, noty, daily_feedback, daily_comment, homework) VALUES(2, 6, "12:12:12", "home", "chapter", "memo", "noty", "feed_back", "comment", "homeworkd");
 
 ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'password';
 
