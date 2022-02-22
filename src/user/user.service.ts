@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { User } from './entities/user.model';
 import { UserCreateDto } from './dto/user-create.dto';
 import { ForbiddenException, HttpStatus } from '@nestjs/common';
+import { UserChangeDto } from './dto/user-change.dto';
 
 @Injectable()
 export class UserService {
@@ -18,6 +19,59 @@ export class UserService {
 
 	findOne(email: string): Promise<User> {
 		return this.usersRepository.findOne({ email: email });
+	}
+
+	async changeUserName(userChangeDto: UserChangeDto) {
+		const isExist = await this.usersRepository.findOne({ id: userChangeDto.id });
+
+		if (!isExist) {
+			throw new ForbiddenException({
+				statusCode: HttpStatus.FORBIDDEN,
+				message: [`존재하지 않는 유저 정보 입니다.`],
+				error: 'Forbidden'
+			});
+		}
+
+		const { affected } = await this.usersRepository.update({id : userChangeDto.id }, 
+										{user_nm : userChangeDto.user_nm}
+										);
+
+		return affected;
+	}
+
+	async changeUserPassword(userChangeDto: UserChangeDto) {
+		const isExist = await this.usersRepository.findOne({ id: userChangeDto.id });
+
+		if (!isExist) {
+			throw new ForbiddenException({
+				statusCode: HttpStatus.FORBIDDEN,
+				message: [`존재하지 않는 유저 정보 입니다.`],
+				error: 'Forbidden'
+			});
+		}
+
+		const { affected } = await this.usersRepository.update({id : userChangeDto.id }, 
+										{password : userChangeDto.password}
+										);
+		return affected;
+	}
+
+	async changeUserPhoneNumber(userChangeDto: UserChangeDto) {
+		const isExist = await this.usersRepository.findOne({ id: userChangeDto.id });
+
+		if (!isExist) {
+			throw new ForbiddenException({
+				statusCode: HttpStatus.FORBIDDEN,
+				message: [`존재하지 않는 유저 정보 입니다.`],
+				error: 'Forbidden'
+			});
+		}
+
+		const { affected } = await this.usersRepository.update({id : userChangeDto.id }, 
+										{phone_num : userChangeDto.phone_num}
+										);
+
+		return affected;
 	}
 
 	async create(userCreateDto: UserCreateDto): Promise<any> {

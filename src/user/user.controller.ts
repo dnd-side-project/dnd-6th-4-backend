@@ -35,20 +35,17 @@ export class UserController {
 	}
 	
 	@Put('name')
-	changeName(@Body() changeUserDto: UserChangeDto) {
-		console.log(changeUserDto);
-		return 'change name';
+	async changeName(@Body() changeUserDto: UserChangeDto) {
+		return await this.userService.changeUserName(changeUserDto);
 	}
 
 	@Put('password')
-	changePassword(@Body() changeUserDto: UserChangeDto) {
-		console.log(changeUserDto);
-		return 'change password';
+	async changePassword(@Body() changeUserDto: UserChangeDto) {
+		return await this.userService.changeUserPassword(changeUserDto);
 	}
 
 	@Put('phone-num')
-	changePhoneNumber(@Body() changeUserDto: UserChangeDto) {
-		console.log(changeUserDto);
-		return 'change phone number';
+	async changePhoneNumber(@Body() changeUserDto: UserChangeDto) {
+		return await this.userService.changeUserPhoneNumber(changeUserDto);
 	}
 }
