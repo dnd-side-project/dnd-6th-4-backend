@@ -32,6 +32,14 @@ export class UserService {
 			});
 		}
 
+		if (!userChangeDto.user_nm) {
+			throw new ForbiddenException({
+				statusCode: HttpStatus.FORBIDDEN,
+				message: [`body에 변경 유저 이름을 작성해주세요.`],
+				error: 'Forbidden'
+			});
+		}
+
 		const { affected } = await this.usersRepository.update({id : userChangeDto.id }, 
 										{user_nm : userChangeDto.user_nm}
 										);
@@ -50,6 +58,14 @@ export class UserService {
 			});
 		}
 
+		if (!userChangeDto.password) {
+			throw new ForbiddenException({
+				statusCode: HttpStatus.FORBIDDEN,
+				message: [`body에 변경 유저 비밀번호를 작성해주세요.`],
+				error: 'Forbidden'
+			});
+		}
+
 		const { affected } = await this.usersRepository.update({id : userChangeDto.id }, 
 										{password : userChangeDto.password}
 										);
@@ -63,6 +79,14 @@ export class UserService {
 			throw new ForbiddenException({
 				statusCode: HttpStatus.FORBIDDEN,
 				message: [`존재하지 않는 유저 정보 입니다.`],
+				error: 'Forbidden'
+			});
+		}
+
+		if (!userChangeDto.phone_num) {
+			throw new ForbiddenException({
+				statusCode: HttpStatus.FORBIDDEN,
+				message: [`body에 변경 유저 전화번호를 작성해주세요.`],
 				error: 'Forbidden'
 			});
 		}
