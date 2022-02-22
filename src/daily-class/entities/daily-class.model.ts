@@ -37,4 +37,10 @@ export class DailyClass {
     
     @Column()
     homework: string;
+
+    @Column({ nullable: true, default: null })
+    change_feedback: boolean;
+
+    @Column('time', { nullable: true, default: null })
+    change_start_time: Date;
 }

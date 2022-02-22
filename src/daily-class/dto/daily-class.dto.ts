@@ -1,4 +1,4 @@
-import { IsString, IsInt, Min, Max, IsNumber, IsMilitaryTime, isDateString, IsDate, IsDateString } from 'class-validator';
+import { IsString, IsInt, Min, IsMilitaryTime, IsOptional, IsBoolean } from 'class-validator';
 
 export class DailyClassDto {
     @IsInt()
@@ -31,4 +31,12 @@ export class DailyClassDto {
 
     @IsString()
     homework: string;
+
+    @IsOptional()
+    @IsBoolean()
+    change_feedback?: boolean;
+
+    @IsOptional()
+    @IsMilitaryTime()
+    change_start_time?: Date;
 }
