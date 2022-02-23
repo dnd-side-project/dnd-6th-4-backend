@@ -1,4 +1,4 @@
-import { IsString, IsInt, Min, IsMilitaryTime, IsOptional, IsBoolean } from 'class-validator';
+import { IsString, IsInt, Min, IsMilitaryTime, IsOptional, IsBoolean, IsIn } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class DailyClassDto {
@@ -53,4 +53,9 @@ export class DailyClassDto {
     @IsMilitaryTime()
     @ApiProperty({ type: "string", default: null, required: false, description: "HH:MM으로 보내주세요. 필수로 작성할 필요는 없습니다."})
     change_start_time?: Date;
+
+    @IsOptional()
+    @IsInt()
+    @ApiProperty({ type: "number", default: null, required: false, description: "이모지 표시를 위한 칼럼입니다. 필수로 작성할 필요는 없습니다."})
+    difficulty?: number;
 }

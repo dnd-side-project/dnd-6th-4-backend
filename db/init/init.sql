@@ -6,6 +6,7 @@ CREATE TABLE User (
     role TINYINT,
     phone_num VARCHAR(255),
     parent_phone_num VARCHAR(255),
+    profile_url VARCHAR(255),
     PRIMARY KEY(id)
 );
 
@@ -36,12 +37,13 @@ CREATE TABLE Daily_Class (
     homework VARCHAR(255),
     change_feedback BOOLEAN, 
     change_start_time TIME,
+    difficulty TINYINT,
     PRIMARY KEY(id)
 );
 
 
-INSERT INTO User(email, user_nm, password, role, phone_num, parent_phone_num) VALUES("asdf1234@naver.com", "seunghwan_lee", "asdfasdfasdf", 1, "010-0000-0000", "010-0000-0000");
-INSERT INTO User(email, user_nm, password, role, phone_num, parent_phone_num) VALUES("qwer5678@naver.com", "hwanseung_lee", "12341234", 1, "010-0000-0001", "010-0000-0000");
+INSERT INTO User(email, user_nm, password, role, phone_num, parent_phone_num, profile_url) VALUES("asdf1234@naver.com", "seunghwan_lee", "asdfasdfasdf", 1, "010-0000-0000", "010-0000-0000", "111");
+INSERT INTO User(email, user_nm, password, role, phone_num, parent_phone_num, profile_url) VALUES("qwer5678@naver.com", "hwanseung_lee", "12341234", 1, "010-0000-0001", "010-0000-0000", "222");
 
 
 INSERT INTO Subject(subject_nm, salary, monthly_cnt, class_time, class_day, teacher_id, color) VALUES("수학", 400000, 8, "12:12:33", "2022-01-01", 1, 100);
