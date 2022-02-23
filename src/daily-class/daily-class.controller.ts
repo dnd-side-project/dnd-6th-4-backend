@@ -14,6 +14,8 @@ import { DailyClassDto } from './dto/daily-class.dto';
 import { DailyClassService } from './daily-class.service';
 import { DailyClass } from './entities/daily-class.model';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody, ApiQuery } from '@nestjs/swagger';
+import { DailyFeedbackDto } from './dto/daily-feedback.dto';
+import { DailyReviewDto } from './dto/daily-review.dto';
 
 @Controller('dailyclass')
 @ApiTags('DAILY class 관련 API')
@@ -35,11 +37,35 @@ export class DailyClassController {
         return this.dailyClassService.findAllbySubjectId(subject_id);
     }
 
+
+
     @Post()
     @ApiOperation({ summary: 'DAILY-CLASS 생성 API', description: '클래스 생성 API 입니다.' })
 	@ApiBody({ type: DailyClassDto })
 	@ApiResponse( { status : 200, description : "생성된 내용 반환", type: DailyClass} )
     async createDailyClass(@Body() createDailyClass: DailyClassDto) {
         return await this.dailyClassService.create(createDailyClass);
+    }
+
+    /**
+     * DailyReviewDto를 이용해서 코멘트와 difficulty를 변경한다.
+     */
+    @Put('feedback')
+    @ApiOperation({ summary: 'DAILY-CLASS 피드백 수정 API', description: '데이터 베이스 변경 API 입니다.' })
+	@ApiBody({ type: DailyFeedbackDto })
+	@ApiResponse( { status : 200, description : "생성된 내용 반환", type: 'number'} )
+    async changeDailyClassFeedback(@Body() feedbackDto: DailyFeedbackDto) {
+        return await this.dailyClassService.changeFeedback(feedbackDto);
+    }
+
+    /**
+     * DailyFeedbackDto 를 이용해서 변경 api 를 변경한다.
+     */
+    @Put('review')
+    @ApiOperation({ summary: 'DAILY-CLASS 피드백 수정 API', description: '데이터 베이스 변경 API 입니다.' })
+	@ApiBody({ type: DailyReviewDto })
+	@ApiResponse( { status : 200, description : "생성된 내용 반환", type: 'number'} )
+    async changeDailyClassReview(@Body() reviewDto: DailyReviewDto) {
+        return await this.dailyClassService.changeReview(reviewDto);
     }
 }
