@@ -6,6 +6,7 @@ CREATE TABLE User (
     role TINYINT,
     phone_num VARCHAR(255),
     parent_phone_num VARCHAR(255),
+    profile_url VARCHAR(255),
     PRIMARY KEY(id)
 );
 
