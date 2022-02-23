@@ -8,18 +8,18 @@ services:
     ports:
       - "3306:3306"
     restart: always
-  # web:
-  #   build: ./
-  #   environment:
-  #     MYSQL_DATABASE: test
-  #     MYSQL_USER: root
-  #     MYSQL_PASSWORD: password
-  #     MYSQL_HOST: db
-  #   ports:
-  #     - "80:3000"
-  #   depends_on:
-  #     - db
-  #   restart: on-failure
+  web:
+    build: ./
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: db
+    ports:
+      - "80:3000"
+    depends_on:
+      - db
+    restart: on-failure
     
 # version: '3.5'
 # services:
