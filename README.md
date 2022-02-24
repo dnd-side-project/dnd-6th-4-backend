@@ -64,3 +64,7 @@ ex) Feat(Review): Add no review screen
 ### code formating 
 
 * eslintrc.js 에 설정해서 배포 -> 한명이 결정
+
+### DIP OCP 적용을 위한 결합도 낮추기 작업
+
+[링크](https://ichi.pro/ko/nestjs-mich-jongsogseong-ju-ib-66935058417860)
