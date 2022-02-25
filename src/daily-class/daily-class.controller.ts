@@ -4,10 +4,9 @@ import {
 	Post,
 	Body,
     Put,
-	// Patch,
 	Param,
-    Query
-	// Delete,
+    Query,
+	Delete,
 	// Query
 } from '@nestjs/common';
 import { DailyClassDto } from './dto/daily-class.dto';
@@ -68,4 +67,11 @@ export class DailyClassController {
     async changeDailyClassReview(@Body() reviewDto: DailyReviewDto) {
         return await this.dailyClassService.changeReview(reviewDto);
     }
+
+    @Delete()
+    @ApiOperation({ summary: 'DAILY-CLASS id를 이용한 제거 API', description: 'DB에 저장되어 데이터를 삭제합니다.' })
+    async deleteDailyClass(@Query('id') dailyClassId: number) {
+        return await this.dailyClassService.delete(dailyClassId);
+    }
+
 }
