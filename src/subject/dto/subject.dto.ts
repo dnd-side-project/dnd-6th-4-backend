@@ -1,4 +1,4 @@
-import { IsString, IsInt, Min, Max, IsNumber, IsMilitaryTime, isDateString, IsDate, IsDateString } from 'class-validator';
+import { IsString, IsInt, Min, Max, IsNumber, IsMilitaryTime, isDateString, IsDate, IsDateString, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class SubjectDto {
@@ -7,10 +7,11 @@ export class SubjectDto {
     @ApiProperty({ description: "과목 이름", type: "string" })
     subject_nm: string;
 
+    @IsOptional()
     @IsNumber()
     @Min(0)
     @ApiProperty({ description: "최소 0 이상의 값을 입력해주세요", type: "number" })
-    salary: number;
+    salary?: number;
 
     @IsInt()
     @Min(4)
@@ -24,9 +25,10 @@ export class SubjectDto {
     class_time: Date;
 
     // 2020-01-01
+    @IsOptional()
     @IsDateString()
     @ApiProperty({ description: "YYYY-MM-DD 형태 날짜를 보내주세요.", type: "string" })
-    class_day: Date;
+    class_day?: Date;
 
     @IsInt()
     @ApiProperty({ description: "int 값으로 선생님 고유 id를 찾아 보내주세요.", type: "number" })
