@@ -98,6 +98,32 @@ export class UserService {
 		return affected;
 	}
 
+	async changeContactTime(userChangeDto: UserChangeDto) {
+		const isExist = await this.usersRepository.findOne({ id: userChangeDto.id });
+
+		if (!isExist) {
+			throw new ForbiddenException({
+				statusCode: HttpStatus.FORBIDDEN,
+				message: [`존재하지 않는 유저 정보 입니다.`],
+				error: 'Forbidden'
+			});
+		}
+
+		if (!userChangeDto.contact_time) {
+			throw new ForbiddenException({
+				statusCode: HttpStatus.FORBIDDEN,
+				message: [`body에 연락시간과 관련한 정보를 작성해주세요.`],
+				error: 'Forbidden'
+			});
+		}
+
+		const { affected } = await this.usersRepository.update({id : userChangeDto.id }, 
+										{contact_time : userChangeDto.contact_time}
+										);
+
+		return affected;
+	}
+
 	async create(userCreateDto: UserCreateDto): Promise<any> {
 		const isExist = await this.usersRepository.findOne({ email: userCreateDto.email });
 

@@ -65,4 +65,12 @@ export class UserController {
 	async changePhoneNumber(@Body() changeUserDto: UserChangeDto) {
 		return await this.userService.changeUserPhoneNumber(changeUserDto);
 	}
+
+	@Put('contact-time')
+	@ApiOperation({ summary: 'USER 연락가능시간 변경 API', description: '계정 id(auto increment) 를 이용한 연락가능시간 변경 API 입니다.' })
+	@ApiBody({ type: UserChangeDto })
+	@ApiResponse( { status : 200, description : "변경 갯수 반환", type: 'number'} )
+	async changeContactTime(@Body() changeUserDto: UserChangeDto) {
+		return await this.userService.changeContactTime(changeUserDto);
+	}
 }
