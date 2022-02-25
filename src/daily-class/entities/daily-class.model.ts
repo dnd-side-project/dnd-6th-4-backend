@@ -38,17 +38,17 @@ export class DailyClass {
     @ApiProperty({ description: "알림을 주기 위한 칼럼입니다."})
     noty: string;
     
-    @Column()
-    @ApiProperty({ description: "피드백을 주기 위한 칼럼입니다."})
-    daily_feedback: string;
+    @Column({ nullable: true, default: null })
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    daily_feedback?: string;
     
-    @Column()
-    @ApiProperty({ description: "코멘트를 달기 위한 칼럼입니다."})
-    daily_comment: string;
+    @Column({ nullable: true, default: null })
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    daily_comment?: string;
     
-    @Column()
-    @ApiProperty({ description: "숙제 정보를 표시하기 위한 칼럼입니다."})
-    homework: string;
+    @Column({ nullable: true, default: null })
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    homework?: string;
 
     @Column({ nullable: true, default: null })
     @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
