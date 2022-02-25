@@ -28,7 +28,7 @@ export class SubjectDto {
     @IsOptional()
     @IsDateString()
     @ApiProperty({ description: "YYYY-MM-DD 형태 날짜를 보내주세요.", type: "string" })
-    class_day?: Date;
+    class_day?: string;
 
     @IsInt()
     @ApiProperty({ description: "int 값으로 선생님 고유 id를 찾아 보내주세요.", type: "number" })

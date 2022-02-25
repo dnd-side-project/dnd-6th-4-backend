@@ -31,4 +31,8 @@ export class SubjectService {
         const { ...res } = await this.subjectRepository.save(subjectDto);
         return res;
     }
+
+    async deleteSubjectById(subjectId: number) {
+        this.subjectRepository.delete({ id: subjectId });
+    }
 }

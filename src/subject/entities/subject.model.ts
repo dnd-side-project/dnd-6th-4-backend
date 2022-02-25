@@ -24,8 +24,8 @@ export class Subject {
     class_time?: Date;
 
     @Column('date', { nullable: true, default: null })
-    @ApiProperty({ type: "Date", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
-    class_day?: Date;
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    class_day?: string;
 
     @Column()
     @ApiProperty({ description: "선생님 고유 아이디 넘버를 저장할 칼럼입니다.."})

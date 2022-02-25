@@ -6,7 +6,8 @@ import {
     Put,
 	// Patch,
 	Param,
-    Query
+    Query,
+    Delete
 	// Delete,
 	// Query
 } from '@nestjs/common';
@@ -41,6 +42,11 @@ export class SubjectController {
 	@ApiResponse( { status : 200, description : "생성된 내용 반환", type: Subject} )
     async createSubject(@Body() createSubjectDto: SubjectDto) {
         return await this.subjectService.create(createSubjectDto);
+    }
+
+    @Delete()
+    async deleteSubject(@Query('id') subjectId: number) {
+        return await this.subjectService.deleteSubjectById(subjectId);
     }
 
 }
