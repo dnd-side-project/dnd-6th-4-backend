@@ -16,7 +16,7 @@ export class DailyClass {
     class_order: number;
 
     @Column('time')
-    @ApiProperty({ description: "수업 시작 시간을 의미합니다."})
+    @ApiProperty({ description: "수업 시작 시간을 의미합니다. HH:MM으로 보내주세요."})
     start_time: Date;
 
     // @Column('time')
@@ -55,7 +55,7 @@ export class DailyClass {
     change_feedback: boolean;
 
     @Column('time', { nullable: true, default: null })
-    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    @ApiProperty({ type: "Date", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
     change_start_time: Date;
 
     @Column({ nullable: true, default: null })

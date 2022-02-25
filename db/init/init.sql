@@ -17,7 +17,7 @@ CREATE TABLE Subject (
     salary INT,
     monthly_cnt INT,
     class_time TIME,
-    class_day DATE,
+    class_day VARCHAR(255),
     teacher_id INT,
     student_id INT,
     color INT,
