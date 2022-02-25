@@ -32,6 +32,10 @@ export class SubjectService {
         return res;
     }
 
+    async change(subjectDto: SubjectDto) {
+        // TODO - 기능 추가 구현
+    }
+
     async deleteSubjectById(subjectId: number) {
         this.subjectRepository.delete({ id: subjectId });
     }
