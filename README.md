@@ -75,4 +75,16 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## License
 
+<<<<<<< HEAD
 Nest is [MIT licensed](LICENSE).
+=======
+![image](https://user-images.githubusercontent.com/58278026/152681510-6513ab1e-c141-4033-be4f-fc40a5c69ce3.png)
+
+### code formating 
+
+* eslintrc.js 에 설정해서 배포 -> 한명이 결정
+
+### DIP OCP 적용을 위한 결합도 낮추기 작업
+
+[링크](https://ichi.pro/ko/nestjs-mich-jongsogseong-ju-ib-66935058417860)
+>>>>>>> 18e997cb98dd6b2a49c77df089e9bf98a8f1ee41
