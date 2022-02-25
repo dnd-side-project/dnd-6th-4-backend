@@ -1,66 +1,78 @@
-# dnd-6th-4-backend
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+</p>
 
-## 세부 기술 스택 선정
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-[백엔드]
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-- IDE : VS Code
-- 런타임 환경 : Node JS
-- 패키지 관리 : npm  // 이상 구체적인 버전 확인 필요
-- 형상관리 : Git / Github
-- 개발환경 세팅 : Docker (DockerFile 활용)
+## Description
 
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## 아키텍처 구성
+## Installation
 
-[백엔드]
-디자인 패턴 : MVC
-Framework : Nest JS
+### use package.json
+```bash
+$ npm install
+```
 
-** src **
-└ User
-  └ Repository
-  └ Entity
-  └ Service
-  └ Controller
-  └ ** module.ts **
-└ Subject
-└ DailyClass
+### use package-lock.json
+```bash
+$ npm ci
+```
+## Running the app
 
-** test **
-└ User
-└ Subject
-└ DailyClass
+```bash
+# development
+$ npm run start
 
-** config **
-└ schema.ts ... etc
-** main.ts **
-** remainder **
+# watch mode
+$ npm run start:dev
 
-## File Naming convention
+# production mode
+$ npm run start:prod
+```
 
-> service-name.role.ts
-> ex : user-login.entity.ts + user-login.repository.ts ...
+## Test
 
-## Git commit convention
+```bash
+# unit tests
+$ npm run test
 
+# e2e tests
+$ npm run test:e2e
 
-### Head
+# test coverage
+$ npm run test:cov
+```
 
-1. 기능을 태그로 작성한다.
-2. 어떤 부분을 수정했는지 표시하기 위해서 태그 뒤에 괄호로 커밋한 기능명을 작성한다.
-3. 설명은 대문자, 동사원형으로 작성 시작한다. Tag : Feat, Fix, Design, Rename, Remove, Comment, !HOTFIX
+## Support
 
-ex) Feat(Review): Add no review screen
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-### **Body**
+## Stay in touch
 
-1. '어떻게' 변경했는지 보다 '무엇을', '왜' 변경했는지 작성 (방법보다 사유 기술)
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-[예제](https://doublesprogramming.tistory.com/256)
+## License
 
-![image](https://user-images.githubusercontent.com/58278026/152681510-6513ab1e-c141-4033-be4f-fc40a5c69ce3.png)
-
-### code formating 
-
-* eslintrc.js 에 설정해서 배포 -> 한명이 결정
+Nest is [MIT licensed](LICENSE).
