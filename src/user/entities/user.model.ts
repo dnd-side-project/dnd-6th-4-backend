@@ -34,4 +34,8 @@ export class User {
 	@Column({ nullable: true, default: null })
 	@ApiProperty({ description: "요청하신 프로필 유알엘 입니다."})
 	profile_url?: string;
+
+	@Column({ nullable: true, default: null})
+	@ApiProperty({ description: "요청하신 연락가능한 시간입니다."})
+	contact_time?: string;
 }
