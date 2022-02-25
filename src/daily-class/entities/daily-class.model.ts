@@ -16,7 +16,7 @@ export class DailyClass {
     class_order: number;
 
     @Column('time')
-    @ApiProperty({ description: "수업 시작 시간을 의미합니다."})
+    @ApiProperty({ description: "수업 시작 시간을 의미합니다. HH:MM으로 보내주세요."})
     start_time: Date;
 
     // @Column('time')
@@ -38,24 +38,24 @@ export class DailyClass {
     @ApiProperty({ description: "알림을 주기 위한 칼럼입니다."})
     noty: string;
     
-    @Column()
-    @ApiProperty({ description: "피드백을 주기 위한 칼럼입니다."})
-    daily_feedback: string;
+    @Column({ nullable: true, default: null })
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    daily_feedback?: string;
     
-    @Column()
-    @ApiProperty({ description: "코멘트를 달기 위한 칼럼입니다."})
-    daily_comment: string;
+    @Column({ nullable: true, default: null })
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    daily_comment?: string;
     
-    @Column()
-    @ApiProperty({ description: "숙제 정보를 표시하기 위한 칼럼입니다."})
-    homework: string;
+    @Column({ nullable: true, default: null })
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    homework?: string;
 
     @Column({ nullable: true, default: null })
     @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
     change_feedback: boolean;
 
     @Column('time', { nullable: true, default: null })
-    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    @ApiProperty({ type: "Date", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
     change_start_time: Date;
 
     @Column({ nullable: true, default: null })

@@ -75,4 +75,8 @@ export class DailyClassService {
 		const { ...res } = await this.dailyClassRepository.save(dailyClassDto);
 		return res;
 	}
+
+	async delete(id: number) {
+		await this.dailyClassRepository.delete({ id : id});
+	}
 }

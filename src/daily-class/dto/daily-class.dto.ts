@@ -32,17 +32,20 @@ export class DailyClassDto {
     @ApiProperty({ type: "string" })
     noty: string;
 
+    @IsOptional()
     @IsString()
-    @ApiProperty({ type: "string" })
-    daily_feedback: string;
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    daily_feedback?: string;
 
+    @IsOptional()
     @IsString()
-    @ApiProperty({ type: "string" })
-    daily_comment: string;
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    daily_comment?: string;
 
+    @IsOptional()
     @IsString()
-    @ApiProperty({ type: "string" })
-    homework: string;
+    @ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+    homework?: string;
 
     @IsOptional()
     @IsBoolean()

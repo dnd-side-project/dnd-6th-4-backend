@@ -27,9 +27,13 @@ export class UserCreateDto {
 
 	@IsOptional()
 	@ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
-	parent_phone_num?: string
+	parent_phone_num?: string;
 
 	@IsOptional()
 	@ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
-	profile_url?: string
+	profile_url?: string;
+
+	@IsOptional()
+	@ApiProperty({ type: "string", default: null, required: false, description: "필수로 작성할 필요는 없습니다."})
+	contact_time?: string;
 }

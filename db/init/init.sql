@@ -7,6 +7,7 @@ CREATE TABLE User (
     phone_num VARCHAR(255),
     parent_phone_num VARCHAR(255),
     profile_url VARCHAR(255),
+    contact_time VARCHAR(255),
     PRIMARY KEY(id)
 );
 
@@ -16,7 +17,7 @@ CREATE TABLE Subject (
     salary INT,
     monthly_cnt INT,
     class_time TIME,
-    class_day DATE,
+    class_day VARCHAR(255),
     teacher_id INT,
     student_id INT,
     color INT,
